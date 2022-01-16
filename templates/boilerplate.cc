@@ -1,4 +1,28 @@
-#include <cstdio>
+#include <iostream>
+#include <vector>
+#include <utility>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <algorithm>
+
+using std::cin;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::vector;
+using std::pair;
+using std::set;
+using std::map;
+using std::unordered_set;
+using std::unordered_map;
+using std::sort;
+using std::unique;
+using std::max;
+using std::min;
+
+typedef long long int64;
 
 #define CF_MULTI_CASES
 
@@ -7,7 +31,7 @@ void solve();
 int main() {
 #ifdef CF_MULTI_CASES
     int cases;
-    scanf("%d", &cases);
+    cin >> cases;
     while (cases--) {
         solve();
     }
