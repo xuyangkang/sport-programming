@@ -38,7 +38,7 @@ void solve();
 
 int main(int argc, char **argv) {
     std::ios_base::sync_with_stdio(false);
-    cin.tie(0);
+    cin.tie(nullptr);
     int cases = 1;
 #ifdef MULTI_CASES
     cin >> cases;
