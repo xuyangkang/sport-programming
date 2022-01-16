@@ -37,6 +37,8 @@ const int64 INT64_INF = 0x3f3f3f3f3f3f3f3fLL;
 void solve();
 
 int main(int argc, char **argv) {
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(0);
     int cases;
 #ifdef MULTI_CASES
     cin >> cases;
