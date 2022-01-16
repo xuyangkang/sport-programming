@@ -1,4 +1,5 @@
 #include <cstdio>
+
 #define CF_MULTI_CASES
 
 void solve();
