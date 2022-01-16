@@ -24,12 +24,12 @@ using std::min;
 
 typedef long long int64;
 
-#define CF_MULTI_CASES
+#define MULTI_CASES
 
 void solve();
 
 int main() {
-#ifdef CF_MULTI_CASES
+#ifdef MULTI_CASES
     int cases;
     cin >> cases;
     while (cases--) {
