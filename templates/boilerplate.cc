@@ -1,3 +1,4 @@
+// std libraries
 #include <iostream>
 #include <vector>
 #include <utility>
@@ -22,25 +23,32 @@ using std::unique;
 using std::max;
 using std::min;
 
-typedef long long int64;
+// typedef
+using int64 = int64_t;
+using pii = pair<int, int>;
 
+// constants
+const int INT_INF = 0x3f3f3f3f;
+const int64 INT64_INF = 0x3f3f3f3f3f3f3f3fLL;
+
+// entrance
 #define MULTI_CASES
 
 void solve();
 
-int main() {
-#ifdef MULTI_CASES
+int main(int argc, char **argv) {
     int cases;
+#ifdef MULTI_CASES
     cin >> cases;
+#else
+    cases = 1;
+#endif
     while (cases--) {
         solve();
     }
-#else
-    solve();
-#endif
     return 0;
 }
 
-
+// problem solver
 void solve() {
 }
