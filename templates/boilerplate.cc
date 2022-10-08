@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <algorithm>
+#include <queue>
 
 using std::cin;
 using std::cout;
@@ -22,6 +23,8 @@ using std::sort;
 using std::unique;
 using std::max;
 using std::min;
+using std::queue;
+using std::priority_queue;
 
 // type alias
 using int8 = int8_t;
@@ -36,8 +39,43 @@ using uint64 = uint64_t;
 using pii = pair<int, int>;
 
 // constants
+// TODO(xuyang): find a better one
 const int INT_INF = 0x3f3f3f3f;
 const int64 INT64_INF = 0x3f3f3f3f3f3f3f3fLL;
+
+
+// Vector utils
+template <class T>
+vector<T> mkVec(size_t size) {
+    return std::move(vector<T>(size));
+}
+
+template <class T>
+vector<T> mkVec(size_t size, T val) {
+    return std::move(vector<T>(size, val));
+}
+
+template <class T>
+vector<vector<T>> mk2dVec(size_t sz1, size_t sz2) {
+    return std::move(vector<vector<T>>(sz1, vector<T>(sz2)));
+}
+
+template <class T>
+vector<vector<T>> mk2dVec(size_t sz1, size_t sz2, T val) {
+    return std::move(vector<vector<T>>(sz1, vector<T>(sz2, val)));
+}
+
+template <class T>
+vector<vector<vector<T>>> mk3dVec(size_t sz1, size_t sz2, size_t sz3) {
+    return std::move(vector<vector<vector<T>>>(sz1,
+        vector<vector<T>>(sz2, vector<T>(sz3))));
+}
+
+template <class T>
+vector<vector<vector<T>>> mk3dVec(size_t sz1, size_t sz2, size_t sz3, T val) {
+    return std::move(vector<vector<vector<T>>>(sz1,
+        vector<vector<T>>(sz2, vector<T>(sz3, val))));
+}
 
 // unordered_map anti-hack
 #include <chrono> // NOLINT
