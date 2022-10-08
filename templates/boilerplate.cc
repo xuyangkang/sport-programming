@@ -126,6 +126,13 @@ vector<T> readVec(size_t n) {
     return std::move(vec);
 }
 
+template <class T>
+vector<T> readVec(vector<T> &vec) {
+    for (auto &i : vec) {
+        cin >> i;
+    }
+}
+
 char PRINT_HELPER[] = " \n";
 template <class T>
 void println(vector<T> vec) {
@@ -158,7 +165,7 @@ int main(int argc, char **argv) {
 #ifdef MULTI_CASES
     cin >> cases;
 #endif
-    while (cases--) {
+    times(cases) {
         solve();
     }
     return 0;
