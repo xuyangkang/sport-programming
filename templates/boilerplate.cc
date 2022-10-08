@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <queue>
+#include <string>
 
 using std::cin;
 using std::cout;
@@ -25,6 +26,7 @@ using std::max;
 using std::min;
 using std::queue;
 using std::priority_queue;
+using std::string;
 
 // type alias
 using int8 = int8_t;
@@ -126,15 +128,20 @@ vector<T> readVec(size_t n) {
 
 char PRINT_HELPER[] = " \n";
 template <class T>
-void printlnVec(vector<T> vec) {
+void println(vector<T> vec) {
     int n = vec.size();
     loop(i, n) {
         cout << vec[i] << PRINT_HELPER[i == n - 1];
     }
 }
 
-void printYesNo(bool ans) {
-    cout << (ans ? "YES" : "NO") << endl;
+template <class T>
+void println(T e) {
+    cout << e << endl;
+}
+
+string toYesNo(bool ans) {
+    return ans ? "YES" : "NO";
 }
 
 // entrance
