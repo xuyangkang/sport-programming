@@ -95,12 +95,6 @@ struct SafeHash {
     }
 };
 
-struct Int64Equal {
-    bool operator()(const int64 &i1, const int64 &i2) const {
-        return i1 == i2;
-    }
-};
-
 template <class T>
 unordered_map<int64, T> mkSafeHashMap() {
     return unordered_map<int64, T, SafeHash>();
