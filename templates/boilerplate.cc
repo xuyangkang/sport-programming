@@ -105,11 +105,24 @@ unordered_set<int64, SafeHash> mkHashSet() {
     return unordered_set<int64, SafeHash>();
 }
 
-
 // Loops
 // TODO(xuyang): check if C++14 and 17 helps
 #define times(N) for (int it##__LINE__ = 0; it##__LINE__ < (N); it##__LINE__++)
 #define loop(iter, N) for (int iter = 0; iter < (N); iter++)
+
+// IO utils
+#define crint(varname) int varname = 0; do { cin >> varname; } while (0)
+#define crint64(varname) int64 varname = 0; do { cin >> varname; } while (0)
+#define crdouble(varname) double varname = 0; do { cin >> varname; } while (0)
+
+template <class T>
+vector<T> readVector(size_t n) {
+    vector<T> vec(n);
+    loop(i, n) {
+        cin >> vec[i];
+    }
+    return std::move(vec);
+}
 
 // entrance
 #define MULTI_CASES
