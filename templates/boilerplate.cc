@@ -77,9 +77,9 @@ vector<vector<vector<T>>> mk3dVec(size_t sz1, size_t sz2, size_t sz3, T val) {
         vector<vector<T>>(sz2, vector<T>(sz3, val))));
 }
 
-// unordered_map anti-hack
+// anti-hack for unordered_set and unordered_map
 #include <chrono> // NOLINT
-struct custom_hash {
+struct SafeHash {
     static uint64 splitmix64(uint64 x) {
         // http://xorshift.di.unimi.it/splitmix64.c
         x += 0x9e3779b97f4a7c15;
@@ -94,6 +94,22 @@ struct custom_hash {
         return splitmix64(x + FIXED_RANDOM);
     }
 };
+
+struct Int64Equal {
+    bool operator()(const int64 &i1, const int64 &i2) const {
+        return i1 == i2;
+    }
+};
+
+template <class T>
+unordered_map<int64, T> mkSafeHashMap() {
+    return unordered_map<int64, T, SafeHash>();
+}
+
+template <class T>
+unordered_set<int64, SafeHash> mkSafeHashSet() {
+    return unordered_set<int64, SafeHash>();
+}
 
 // entrance
 #define MULTI_CASES
