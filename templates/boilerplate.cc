@@ -124,6 +124,19 @@ vector<T> readVector(size_t n) {
     return std::move(vec);
 }
 
+char PRINT_HELPER[] = " \n";
+template <class T>
+void printlnVector(vector<T> vec) {
+    int n = vec.size();
+    loop(i, n) {
+        cout << vec[i] << PRINT_HELPER[i == n - 1];
+    }
+}
+
+void printYesNo(bool ans) {
+    cout << (ans ? "YES" : "NO") << endl;
+}
+
 // entrance
 #define MULTI_CASES
 
