@@ -105,10 +105,18 @@ unordered_set<int64, SafeHash> mkSafeHashSet() {
     return unordered_set<int64, SafeHash>();
 }
 
+
+// Loops
+// TODO(xuyang): check if C++14 and 17 helps
+#define times(N) for (int it##__LINE__ = 0; it##__LINE__ < (N); it##__LINE__++)
+#define loop(iter, N) for (int iter = 0; iter < (N); iter++)
+
 // entrance
 #define MULTI_CASES
 
 void solve();
+
+#ifndef USE_AS_HEADER
 
 int main(int argc, char **argv) {
     std::ios_base::sync_with_stdio(false);
@@ -126,3 +134,5 @@ int main(int argc, char **argv) {
 // problem solver
 void solve() {
 }
+
+#endif
