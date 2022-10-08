@@ -151,6 +151,17 @@ string toYesNo(bool ans) {
     return ans ? "YES" : "NO";
 }
 
+// DP utils
+template <class T>
+void updateMax(T &a, const T &b) {
+    a = max(a, b);
+}
+
+template <class T>
+void updateMin(T &a, const T &b) {
+    a = min(a, b);
+}
+
 // entrance
 #define MULTI_CASES
 
