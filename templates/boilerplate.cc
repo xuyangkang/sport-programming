@@ -23,8 +23,16 @@ using std::unique;
 using std::max;
 using std::min;
 
-// typedef
+// type alias
+using int8 = int8_t;
+using uint8 = uint8_t;
+using int16 = int16_t;
+using uint16 = uint16_t;
+using int32 = int32_t;
+using uint32 = uint32_t;
 using int64 = int64_t;
+using uint64 = uint64_t;
+
 using pii = pair<int, int>;
 
 // constants
@@ -32,9 +40,9 @@ const int INT_INF = 0x3f3f3f3f;
 const int64 INT64_INF = 0x3f3f3f3f3f3f3f3fLL;
 
 // unordered_map anti-hack
-#include <chrono>
+#include <chrono> // NOLINT
 struct custom_hash {
-    static uint64_t splitmix64(uint64_t x) {
+    static uint64 splitmix64(uint64 x) {
         // http://xorshift.di.unimi.it/splitmix64.c
         x += 0x9e3779b97f4a7c15;
         x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
@@ -42,8 +50,9 @@ struct custom_hash {
         return x ^ (x >> 31);
     }
 
-    size_t operator()(uint64_t x) const {
-        static const uint64_t FIXED_RANDOM = std::chrono::steady_clock::now().time_since_epoch().count();
+    size_t operator()(uint64 x) const {
+        static const uint64 FIXED_RANDOM =
+            std::chrono::steady_clock::now().time_since_epoch().count();
         return splitmix64(x + FIXED_RANDOM);
     }
 };
