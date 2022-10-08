@@ -116,7 +116,7 @@ unordered_set<int64, SafeHash> mkHashSet() {
 #define crdouble(varname) double varname = 0; do { cin >> varname; } while (0)
 
 template <class T>
-vector<T> readVector(size_t n) {
+vector<T> readVec(size_t n) {
     vector<T> vec(n);
     loop(i, n) {
         cin >> vec[i];
@@ -126,7 +126,7 @@ vector<T> readVector(size_t n) {
 
 char PRINT_HELPER[] = " \n";
 template <class T>
-void printlnVector(vector<T> vec) {
+void printlnVec(vector<T> vec) {
     int n = vec.size();
     loop(i, n) {
         cout << vec[i] << PRINT_HELPER[i == n - 1];
