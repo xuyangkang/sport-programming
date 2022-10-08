@@ -135,7 +135,7 @@ void readVec(vector<T> &vec) {  // NOLINT
 
 char PRINT_HELPER[] = " \n";
 template <class T>
-void println(vector<T> vec) {
+void println(const vector<T> &vec) {
     int n = vec.size();
     loop(i, n) {
         cout << vec[i] << PRINT_HELPER[i == n - 1];
