@@ -96,12 +96,12 @@ struct SafeHash {
 };
 
 template <class T>
-unordered_map<int64, T> mkSafeHashMap() {
+unordered_map<int64, T> mkHashMap() {
     return unordered_map<int64, T, SafeHash>();
 }
 
 template <class T>
-unordered_set<int64, SafeHash> mkSafeHashSet() {
+unordered_set<int64, SafeHash> mkHashSet() {
     return unordered_set<int64, SafeHash>();
 }
 
