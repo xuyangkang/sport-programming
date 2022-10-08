@@ -127,7 +127,7 @@ vector<T> readVec(size_t n) {
 }
 
 template <class T>
-vector<T> readVec(vector<T> &vec) {
+void readVec(vector<T> &vec) {  // NOLINT
     for (auto &i : vec) {
         cin >> i;
     }
@@ -153,12 +153,12 @@ string toYesNo(bool ans) {
 
 // DP utils
 template <class T>
-void updateMax(T &a, const T &b) {
+void updateMax(T &a, const T &b) { // NOLINT
     a = max(a, b);
 }
 
 template <class T>
-void updateMin(T &a, const T &b) {
+void updateMin(T &a, const T &b) { // NOLINT
     a = min(a, b);
 }
 
