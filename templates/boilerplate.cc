@@ -221,7 +221,7 @@ void update_min(T &a, const T &b) { // NOLINT
 }
 
 // entrance
-#define MULTI_CASES
+const bool MULTI_CASES = true;
 
 struct Context;
 void init(Context*);
@@ -233,9 +233,9 @@ int main(int argc, char **argv) {
     std::ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     int cases = 1;
-#ifdef MULTI_CASES
-    cin >> cases;
-#endif
+    if (MULTI_CASES) {
+        cin >> cases;
+    }
     Context ctx;
     init(&ctx);
     repeat(cases) {
