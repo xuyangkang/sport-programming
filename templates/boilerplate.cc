@@ -79,17 +79,6 @@ vector<vector<vector<T>>> mk_3dvec(size_t sz1, size_t sz2, size_t sz3, T val) {
         vector<vector<T>>(sz2, vector<T>(sz3, val))));
 }
 
-template <class T>
-vector<vector<vector<vector<T>>>> mk_4dvec(size_t sz1, size_t sz2, size_t sz3, size_t sz4) {
-    return std::move(vector<vector<vector<vector<T>>>>(sz1,
-        vector<vector<vector<T>>>(sz2, vector<vector<T>>(sz3, vector<T>(sz4)))));
-}
-
-template <class T>
-vector<vector<vector<vector<T>>>> mk_4dvec(size_t sz1, size_t sz2, size_t sz3, size_t sz4, T val) {
-    return std::move(vector<vector<vector<vector<T>>>>(sz1,
-        vector<vector<vector<T>>>(sz2, vector<vector<T>>(sz3, vector<T>(sz4, val)))));
-}
 
 // anti-hack for unordered_set and unordered_map
 #include <chrono> // NOLINT
@@ -121,8 +110,40 @@ unordered_set<int64, SafeHash> mk_hashset() {
 
 // Loops
 // TODO(xuyang): check if C++14 and 17 helps
-#define repeat(N) for (int it##__LINE__ = 0; it##__LINE__ < (N); it##__LINE__++)
-#define loop(iter, N) for (int iter = 0; iter < (N); iter++)
+
+
+
+#define CAT_(a, b) a ## b
+#define CAT(a, b) CAT_(a, b)
+#define VARNAME(Var) CAT(Var, __LINE__)
+#define repeat(N) for (int VARNAME(it) = 0; VARNAME(it) < (N); VARNAME(it)++)
+
+#define FOR2(ITER, N) \
+    for (int64 ITER = 0; ITER < (N); ITER++)
+#define FOR3(ITER, START, END) \
+    int64 VARNAME(step) = (START) <= (END) ? 1 : -1; \
+    for (int64 ITER = (START); ITER < (END); ITER+=VARNAME(step))
+#define FOR4(ITER, START, END, STEP) \
+    int64 VARNAME(step)= (START) <= (END) ? (STEP) : -(STEP); \
+    for (int64 ITER = (START); ITER < (END); ITER+=VARNAME(step))
+
+#define TRIAGE_FOR(_1, _2, _3, _4, NAME, ...) NAME
+#define loop(...) TRIAGE_FOR(__VA_ARGS__, FOR4, FOR3, FOR2)(__VA_ARGS__)
+
+
+#define FOREQ2(ITER, N) \
+    for (int64 ITER = 0; ITER <= (N); ITER++)
+#define FOREQ3(ITER, START, END) \
+    int64 VARNAME(step) = (START) <= (END) ? 1 : -1;\
+    for (int64 ITER = (START); ITER <= (END); ITER+=VARNAME(step))
+#define FOREQ4(ITER, START, END, STEP) \
+    int64 VARNAME(step)= (START) <= (END) ? (STEP) : -(STEP); \
+    for (int64 ITER = (START); ITER <= (END); ITER+=VARNAME(step))
+
+#define TRIAGE_FOR_EQ(_1, _2, _3, _4, NAME, ...) NAME
+#define loopeq(...) \
+    TRIAGE_FOR_EQ(__VA_ARGS__, FOREQ4, FOREQ3, FOREQ2)(__VA_ARGS__)
+
 
 // IO utils
 #define crint(varname) int varname = 0; do { cin >> varname; } while (0)
@@ -198,7 +219,6 @@ int main(int argc, char **argv) {
 
 // Global init, such as primes.
 void init() {
-
 }
 
 // problem solver
