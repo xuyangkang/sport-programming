@@ -191,12 +191,14 @@ void print_vec(const vector<T> &vec) {
     } while (0)
 #define PRINTLN5(a, b, c, d, e) \
     do { \
-        cout << (a) << " " << (b) << " " << (c) << " " << (d) << " " << (e) << endl; \
+        cout << (a) << " " << (b) << " "; \
+        cout << (c) << " " << (d) << " " << (e) << endl; \
     } while (0)
 
 
 #define TRIAGE_PRINTLN(_1, _2, _3, _4, _5, NAME, ...) NAME
-#define println(...) TRIAGE_PRINTLN(__VA_ARGS__, PRINTLN5, PRINTLN4, PRINTLN3, PRINTLN2, PRINTLN1)(__VA_ARGS__)
+#define println(...) TRIAGE_PRINTLN(__VA_ARGS__, PRINTLN5, \
+    PRINTLN4, PRINTLN3, PRINTLN2, PRINTLN1)(__VA_ARGS__)
 
 string yesno(bool ans) {
     return ans ? "YES" : "NO";
@@ -216,8 +218,9 @@ void update_min(T &a, const T &b) { // NOLINT
 // entrance
 #define MULTI_CASES
 
-void init();
-void solve();
+class Context;
+void init(Context*);
+void solve(const Context&);
 
 #ifndef USE_AS_HEADER
 
@@ -228,19 +231,23 @@ int main(int argc, char **argv) {
 #ifdef MULTI_CASES
     cin >> cases;
 #endif
-    init();
+    Context ctx;
+    init(&ctx);
     repeat(cases) {
-        solve();
+        solve(ctx);
     }
     return 0;
 }
 
+class Context {
+};
+
 // Global init, such as primes.
-void init() {
+void init(Context *ctx) {
 }
 
 // problem solver
-void solve() {
+void solve(const Context &ctx) {
 }
 
 #endif
