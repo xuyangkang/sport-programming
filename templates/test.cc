@@ -1,6 +1,6 @@
 #define USE_AS_HEADER
 
-#include "./boilerplate.cc"
+#include "./boilerplate.cc" // NOLINT
 
 int main(int argc, char **argv) {
     loop(i, 10) {

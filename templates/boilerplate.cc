@@ -111,8 +111,6 @@ unordered_set<int64, SafeHash> mk_hashset() {
 // Loops
 // TODO(xuyang): check if C++14 and 17 helps
 
-
-
 #define CAT_(a, b) a ## b
 #define CAT(a, b) CAT_(a, b)
 #define VARNAME(Var) CAT(Var, __LINE__)
