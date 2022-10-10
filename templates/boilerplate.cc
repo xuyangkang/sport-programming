@@ -48,35 +48,47 @@ const int64 INT64_INF = 0x3f3f3f3f3f3f3f3fLL;
 
 // Vector utils
 template <class T>
-vector<T> mkVec(size_t size) {
+vector<T> mk_vec(size_t size) {
     return std::move(vector<T>(size));
 }
 
 template <class T>
-vector<T> mkVec(size_t size, T val) {
+vector<T> mk_vec(size_t size, T val) {
     return std::move(vector<T>(size, val));
 }
 
 template <class T>
-vector<vector<T>> mk2dVec(size_t sz1, size_t sz2) {
+vector<vector<T>> mk_2dvec(size_t sz1, size_t sz2) {
     return std::move(vector<vector<T>>(sz1, vector<T>(sz2)));
 }
 
 template <class T>
-vector<vector<T>> mk2dVec(size_t sz1, size_t sz2, T val) {
+vector<vector<T>> mk_2dvec(size_t sz1, size_t sz2, T val) {
     return std::move(vector<vector<T>>(sz1, vector<T>(sz2, val)));
 }
 
 template <class T>
-vector<vector<vector<T>>> mk3dVec(size_t sz1, size_t sz2, size_t sz3) {
+vector<vector<vector<T>>> mk_3dvec(size_t sz1, size_t sz2, size_t sz3) {
     return std::move(vector<vector<vector<T>>>(sz1,
         vector<vector<T>>(sz2, vector<T>(sz3))));
 }
 
 template <class T>
-vector<vector<vector<T>>> mk3dVec(size_t sz1, size_t sz2, size_t sz3, T val) {
+vector<vector<vector<T>>> mk_3dvec(size_t sz1, size_t sz2, size_t sz3, T val) {
     return std::move(vector<vector<vector<T>>>(sz1,
         vector<vector<T>>(sz2, vector<T>(sz3, val))));
+}
+
+template <class T>
+vector<vector<vector<vector<T>>>> mk_4dvec(size_t sz1, size_t sz2, size_t sz3, size_t sz4) {
+    return std::move(vector<vector<vector<vector<T>>>>(sz1,
+        vector<vector<vector<T>>>(sz2, vector<vector<T>>(sz3, vector<T>(sz4)))));
+}
+
+template <class T>
+vector<vector<vector<vector<T>>>> mk_4dvec(size_t sz1, size_t sz2, size_t sz3, size_t sz4, T val) {
+    return std::move(vector<vector<vector<vector<T>>>>(sz1,
+        vector<vector<vector<T>>>(sz2, vector<vector<T>>(sz3, vector<T>(sz4, val)))));
 }
 
 // anti-hack for unordered_set and unordered_map
@@ -98,18 +110,18 @@ struct SafeHash {
 };
 
 template <class T>
-unordered_map<int64, T> mkHashMap() {
+unordered_map<int64, T> mk_hashmap() {
     return unordered_map<int64, T, SafeHash>();
 }
 
 template <class T>
-unordered_set<int64, SafeHash> mkHashSet() {
+unordered_set<int64, SafeHash> mk_hashset() {
     return unordered_set<int64, SafeHash>();
 }
 
 // Loops
 // TODO(xuyang): check if C++14 and 17 helps
-#define times(N) for (int it##__LINE__ = 0; it##__LINE__ < (N); it##__LINE__++)
+#define repeat(N) for (int it##__LINE__ = 0; it##__LINE__ < (N); it##__LINE__++)
 #define loop(iter, N) for (int iter = 0; iter < (N); iter++)
 
 // IO utils
@@ -118,7 +130,7 @@ unordered_set<int64, SafeHash> mkHashSet() {
 #define crdouble(varname) double varname = 0; do { cin >> varname; } while (0)
 
 template <class T>
-vector<T> readVec(size_t n) {
+vector<T> read_vec(size_t n) {
     vector<T> vec(n);
     loop(i, n) {
         cin >> vec[i];
@@ -127,7 +139,7 @@ vector<T> readVec(size_t n) {
 }
 
 template <class T>
-void readVec(vector<T> &vec) {  // NOLINT
+void read_vec(vector<T> &vec) {  // NOLINT
     for (auto &i : vec) {
         cin >> i;
     }
@@ -147,24 +159,25 @@ void println(T e) {
     cout << e << endl;
 }
 
-string toYesNo(bool ans) {
+string yesno(bool ans) {
     return ans ? "YES" : "NO";
 }
 
 // DP utils
 template <class T>
-void updateMax(T &a, const T &b) { // NOLINT
+void update_max(T &a, const T &b) { // NOLINT
     a = max(a, b);
 }
 
 template <class T>
-void updateMin(T &a, const T &b) { // NOLINT
+void update_min(T &a, const T &b) { // NOLINT
     a = min(a, b);
 }
 
 // entrance
 #define MULTI_CASES
 
+void init();
 void solve();
 
 #ifndef USE_AS_HEADER
@@ -176,10 +189,16 @@ int main(int argc, char **argv) {
 #ifdef MULTI_CASES
     cin >> cases;
 #endif
-    times(cases) {
+    init();
+    repeat(cases) {
         solve();
     }
     return 0;
+}
+
+// Global init, such as primes.
+void init() {
+
 }
 
 // problem solver
