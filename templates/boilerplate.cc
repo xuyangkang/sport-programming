@@ -191,13 +191,18 @@ void println_vec(const vector<T> &vec) {
     } while (0)
 #define PRINTLN5(a, b, c, d, e) \
     do { \
-        cout << (a) << " " << (b) << " "; \
-        cout << (c) << " " << (d) << " " << (e) << endl; \
+        cout << (a) << " " << (b) << " " << (c) << " "; \
+        cout << (d) << " " << (e) << endl; \
+    } while (0)
+#define PRINTLN6(a, b, c, d, e, f) \
+    do { \
+        cout << (a) << " " << (b) << " " << (c) << " "; \
+        cout << (d) << " " << (e) << " " << (f) << endl; \
     } while (0)
 
 
-#define TRIAGE_PRINTLN(_1, _2, _3, _4, _5, NAME, ...) NAME
-#define println(...) TRIAGE_PRINTLN(__VA_ARGS__, PRINTLN5, \
+#define TRIAGE_PRINTLN(_1, _2, _3, _4, _5, _6, NAME, ...) NAME
+#define println(...) TRIAGE_PRINTLN(__VA_ARGS__, PRINTLN6, PRINTLN5, \
     PRINTLN4, PRINTLN3, PRINTLN2, PRINTLN1)(__VA_ARGS__)
 
 string yesno(bool ans) {
