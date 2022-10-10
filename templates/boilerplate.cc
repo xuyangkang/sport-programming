@@ -223,7 +223,7 @@ void update_min(T &a, const T &b) { // NOLINT
 // entrance
 #define MULTI_CASES
 
-class Context;
+struct Context;
 void init(Context*);
 void solve(const Context&);
 
@@ -244,7 +244,7 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-class Context {
+struct Context {
 };
 
 // Global init, such as primes.
