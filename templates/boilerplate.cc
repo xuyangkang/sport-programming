@@ -166,17 +166,37 @@ void read_vec(vector<T> &vec) {  // NOLINT
 
 char PRINT_HELPER[] = " \n";
 template <class T>
-void println(const vector<T> &vec) {
+void print_vec(const vector<T> &vec) {
     int n = vec.size();
     loop(i, n) {
         cout << vec[i] << PRINT_HELPER[i == n - 1];
     }
 }
 
-template <class T>
-void println(T e) {
-    cout << e << endl;
-}
+#define PRINTLN1(a) \
+    do { \
+        cout << (a) << endl; \
+    } while (0)
+#define PRINTLN2(a, b) \
+    do { \
+        cout << (a) << " " << (b) << endl; \
+    } while (0)
+#define PRINTLN3(a, b, c) \
+    do { \
+        cout << (a) << " " << (b) << " " << (c) << endl; \
+    } while (0)
+#define PRINTLN4(a, b, c, d) \
+    do { \
+        cout << (a) << " " << (b) << " " << (c) << " " << (d) << endl; \
+    } while (0)
+#define PRINTLN5(a, b, c, d, e) \
+    do { \
+        cout << (a) << " " << (b) << " " << (c) << " " << (d) << " " << (e) << endl; \
+    } while (0)
+
+
+#define TRIAGE_PRINTLN(_1, _2, _3, _4, _5, NAME, ...) NAME
+#define println(...) TRIAGE_PRINTLN(__VA_ARGS__, PRINTLN5, PRINTLN4, PRINTLN3, PRINTLN2, PRINTLN1)(__VA_ARGS__)
 
 string yesno(bool ans) {
     return ans ? "YES" : "NO";
