@@ -119,10 +119,10 @@ struct SafeHash {
     for (int64 ITER = 0; ITER < (N); ITER++)
 #define FOR3(ITER, START, END) \
     int64 VARNAME(step) = (START) <= (END) ? 1 : -1; \
-    for (int64 ITER = (START); ITER < (END); ITER+=VARNAME(step))
+    for (int64 ITER = (START); ITER != (END); ITER+=VARNAME(step))
 #define FOR4(ITER, START, END, STEP) \
     int64 VARNAME(step)= (START) <= (END) ? (STEP) : -(STEP); \
-    for (int64 ITER = (START); ITER < (END); ITER+=VARNAME(step))
+    for (int64 ITER = (START); ITER != (END); ITER+=VARNAME(step))
 
 #define TRIAGE_FOR(_1, _2, _3, _4, NAME, ...) NAME
 #define loop(...) TRIAGE_FOR(__VA_ARGS__, FOR4, FOR3, FOR2)(__VA_ARGS__)
@@ -132,10 +132,10 @@ struct SafeHash {
     for (int64 ITER = 0; ITER <= (N); ITER++)
 #define FOREQ3(ITER, START, END) \
     int64 VARNAME(step) = (START) <= (END) ? 1 : -1;\
-    for (int64 ITER = (START); ITER <= (END); ITER+=VARNAME(step))
+    for (int64 ITER = (START); ITER != (END) + VARNAME(step); ITER+=VARNAME(step))
 #define FOREQ4(ITER, START, END, STEP) \
     int64 VARNAME(step)= (START) <= (END) ? (STEP) : -(STEP); \
-    for (int64 ITER = (START); ITER <= (END); ITER+=VARNAME(step))
+    for (int64 ITER = (START); ITER != (END) + VARNAME(step); ITER+=VARNAME(step))
 
 #define TRIAGE_FOR_EQ(_1, _2, _3, _4, NAME, ...) NAME
 #define loopeq(...) \
