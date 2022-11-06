@@ -98,19 +98,18 @@ struct SafeHash {
     }
 };
 
-template <class T>
-unordered_map<int64, T> mk_hashmap() {
-    return unordered_map<int64, T, SafeHash>();
-}
+// TODO: enable later
+// template <class T>
+// unordered_map<int64, T> mk_hashmap() {
+//     return unordered_map<int64, T, SafeHash>();
+// }
 
-template <class T>
-unordered_set<int64, SafeHash> mk_hashset() {
-    return unordered_set<int64, SafeHash>();
-}
+// template <class T>
+// unordered_set<int64, SafeHash> mk_hashset() {
+//     return unordered_set<int64, SafeHash>();
+// }
 
 // Loops
-// TODO(xuyang): check if C++14 and 17 helps
-
 #define CAT_(a, b) a ## b
 #define CAT(a, b) CAT_(a, b)
 #define VARNAME(Var) CAT(Var, __LINE__)
@@ -209,21 +208,11 @@ string yesno(bool ans) {
     return ans ? "YES" : "NO";
 }
 
-// DP utils
-template <class T>
-void update_max(T &a, const T &b) { // NOLINT
-    a = max(a, b);
-}
-
-template <class T>
-void update_min(T &a, const T &b) { // NOLINT
-    a = min(a, b);
-}
-
 // entrance
 const bool MULTI_CASES = true;
 
-struct Context;
+struct Context {
+};
 void init(Context*);
 void solve(const Context&);
 
@@ -243,9 +232,6 @@ int main(int argc, char **argv) {
     }
     return 0;
 }
-
-struct Context {
-};
 
 // Global init, such as primes.
 void init(Context *ctx) {
