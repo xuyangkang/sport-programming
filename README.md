@@ -3,7 +3,7 @@ Xuyang's repository for sport programming
 
 ## Design
 
-### C++ first
+### C++ and Python
 ### Production level standard
 ### Engineering skills welcome
 
