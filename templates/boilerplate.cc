@@ -100,12 +100,15 @@ struct SafeHash {
 
 
 template <class T>
-unordered_map<int64, T> mk_hashmap() {
+using safe_hashmap = unordered_map<int64, T, SafeHash>;
+
+template <class T>
+safe_hashmap<T> mk_hashmap() {
     return unordered_map<int64, T, SafeHash>();
 }
 
-template <class T>
-unordered_set<int64, SafeHash> mk_hashset() {
+using safe_hashset = unordered_set<int64, SafeHash>;
+safe_hashset mk_hashset() {
     return unordered_set<int64, SafeHash>();
 }
 
@@ -189,8 +192,10 @@ const bool MULTI_CASES = true;
 
 struct Context {
 };
-void init(Context*);
-void solve(const Context&);
+Context ctx;
+
+void init();
+void solve();
 
 #ifndef USE_AS_HEADER
 
@@ -202,19 +207,19 @@ int main(int argc, char **argv) {
         cin >> cases;
     }
     Context ctx;
-    init(&ctx);
+    init();
     repeat(cases) {
-        solve(ctx);
+        solve();
     }
     return 0;
 }
 
 // Global init, such as primes.
-void init(Context *ctx) {
+void init() {
 }
 
 // problem solver
-void solve(const Context &ctx) {
+void solve() {
 }
 
 #endif
