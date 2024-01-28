@@ -8,6 +8,12 @@ Xuyang's repository for sport programming
 ### Engineering skills welcome
 
 ## Dependencies
+[bazel](https://bazel.build/)
+Follow the install instruction. I use openSUSE so:
+```
+sudo zypper install bazel
+```
+
 [cpplint](https://github.com/cpplint/cpplint)
 
 Install with
