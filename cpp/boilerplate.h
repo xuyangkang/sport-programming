@@ -1,4 +1,3 @@
-// std libraries
 #ifndef CPP_BOILERPLATE_H_
 #define CPP_BOILERPLATE_H_
 

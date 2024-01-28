@@ -1,11 +1,12 @@
 # sport-programming
 Xuyang's repository for sport programming
 
-## Design
+## Guideline
 
-### C++ and Python
-### Production level standard
-### Engineering skills welcome
+* Python for easy problems
+* C++ for difficult ones
+* Production level quality
+
 
 ## Dependencies
 [bazel](https://bazel.build/)
@@ -20,6 +21,11 @@ sudo zypper install bazel
 Install with
 ```
 pip install cpplint
+```
+
+## Test
+```
+bazel test //cpp:all
 ```
 
 ## Lint
