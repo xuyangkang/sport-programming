@@ -10,6 +10,11 @@ Xuyang's repository for sport programming
 ## Dependencies
 [cpplint](https://github.com/cpplint/cpplint)
 
+Install with
+```
+pip install cpplint
+```
+
 ## Lint
 ```
 cpplint --recursive --filter=-legal ./

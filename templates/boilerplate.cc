@@ -146,16 +146,25 @@ void println_vec(const vector<T> &vec) {
 
 
 template<typename... Args>
-void readln(Args&... args)
-{
+void readln(Args&... args) {
     ((cin >> args), ...);
 }
 
 template<typename... Args>
-void writeln(Args... args)
-{
+void writeln(Args... args) {
     ((cout << args << " "), ...);
     cout << endl;
+}
+
+template<typename... Args>
+void debug(Args... args) {
+    #ifdef LOCAL
+    #ifndef ONLINE_JUDGE
+    cerr << endl;
+    ((cerr << args << " "), ...);
+    cerr << endl;
+    #endif
+    #endif
 }
 
 string yesno(bool ans) {
