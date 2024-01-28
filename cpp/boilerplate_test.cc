@@ -1,8 +1,7 @@
-#include "boilerplate.h"
+#include "cpp/boilerplate.h"
 
 #define USE_AS_HEADER
 
-#include <cassert>
 #include <gtest/gtest.h>
 
 // Demonstrate some basic assertions.

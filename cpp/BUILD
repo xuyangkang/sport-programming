@@ -8,7 +8,7 @@ cc_library(
 cc_test(
   name = "boilerplate_test",
   size = "small",
-  srcs = ["test.cc"],
+  srcs = ["boilerplate_test.cc"],
   deps = ["@com_google_googletest//:gtest_main", ":boilerplate"],
   linkstatic=True
 )

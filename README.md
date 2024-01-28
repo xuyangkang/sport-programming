@@ -9,6 +9,7 @@ Xuyang's repository for sport programming
 
 ## Dependencies
 [bazel](https://bazel.build/)
+
 Follow the install instruction. I use openSUSE so:
 ```
 sudo zypper install bazel

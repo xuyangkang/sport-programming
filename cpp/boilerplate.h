@@ -1,4 +1,7 @@
 // std libraries
+#ifndef CPP_BOILERPLATE_H_
+#define CPP_BOILERPLATE_H_
+
 #include <algorithm>
 #include <cstdint>
 #include <iostream>
@@ -207,3 +210,5 @@ void solve() {
 }
 
 #endif
+
+#endif  // CPP_BOILERPLATE_H_
