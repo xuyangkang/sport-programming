@@ -24,8 +24,21 @@ void test_safehash() {
     assert(!s2.count(3));
 }
 
+void test_argv() {
+    int a = 0;
+    writeln("a =", a);
+}
+
+void test_template_argument_deduction() {
+    pair pii = {1, 2};
+    assert(pii.first == 1);
+    assert(pii.second == 2);
+}
+
 int main(int argc, char **argv) {
     test_safehash();
+    test_argv();
+    test_template_argument_deduction();
     cout << "test passed!" << endl;
     return 0;
 }

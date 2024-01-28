@@ -39,8 +39,6 @@ using uint32 = uint32_t;
 using int64 = int64_t;
 using uint64 = uint64_t;
 
-using pii = pair<int, int>;
-
 // constants
 // TODO(xuyang): find a better one
 const int INT_INF = 0x3f3f3f3f;
@@ -121,12 +119,6 @@ safe_hashset mk_hashset() {
 #define loop(ITER, N) for (int64 ITER = 0; ITER < (N); ITER++)
 #define loopeq(ITER, N) for (int64 ITER = 0; ITER <= (N); ITER++)
 
-// IO utils
-#define crint(varname) int varname = 0; do { cin >> varname; } while (0)
-#define crint64(varname) int64 varname = 0; do { cin >> varname; } while (0)
-#define crdouble(varname) double varname = 0; do { cin >> varname; } while (0)
-#define crstr(varname) std::string varname; do { cin >> varname; } while (0)
-
 template <class T>
 vector<T> read_vec(size_t n) {
     vector<T> vec(n);
@@ -152,37 +144,19 @@ void println_vec(const vector<T> &vec) {
     }
 }
 
-#define PRINTLN1(a) \
-    do { \
-        cout << (a) << endl; \
-    } while (0)
-#define PRINTLN2(a, b) \
-    do { \
-        cout << (a) << " " << (b) << endl; \
-    } while (0)
-#define PRINTLN3(a, b, c) \
-    do { \
-        cout << (a) << " " << (b) << " " << (c) << endl; \
-    } while (0)
-#define PRINTLN4(a, b, c, d) \
-    do { \
-        cout << (a) << " " << (b) << " " << (c) << " " << (d) << endl; \
-    } while (0)
-#define PRINTLN5(a, b, c, d, e) \
-    do { \
-        cout << (a) << " " << (b) << " " << (c) << " "; \
-        cout << (d) << " " << (e) << endl; \
-    } while (0)
-#define PRINTLN6(a, b, c, d, e, f) \
-    do { \
-        cout << (a) << " " << (b) << " " << (c) << " "; \
-        cout << (d) << " " << (e) << " " << (f) << endl; \
-    } while (0)
 
+template<typename... Args>
+void readln(Args&... args)
+{
+    ((cin >> args), ...);
+}
 
-#define TRIAGE_PRINTLN(_1, _2, _3, _4, _5, _6, NAME, ...) NAME
-#define println(...) TRIAGE_PRINTLN(__VA_ARGS__, PRINTLN6, PRINTLN5, \
-    PRINTLN4, PRINTLN3, PRINTLN2, PRINTLN1)(__VA_ARGS__)
+template<typename... Args>
+void writeln(Args... args)
+{
+    ((cout << args << " "), ...);
+    cout << endl;
+}
 
 string yesno(bool ans) {
     return ans ? "YES" : "NO";
