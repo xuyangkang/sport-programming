@@ -1,6 +1,14 @@
+cc_library(
+    name = "boilerplate",
+    srcs = [
+        "boilerplate.h"
+    ],
+)
+
 cc_test(
-  name = "hello_test",
+  name = "boilerplate_test",
   size = "small",
-  srcs = ["hello_test.cc"],
-  deps = ["@com_google_googletest//:gtest_main"],
+  srcs = ["test.cc"],
+  deps = ["@com_google_googletest//:gtest_main", ":boilerplate"],
+  linkstatic=True
 )

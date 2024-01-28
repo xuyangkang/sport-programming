@@ -1,4 +1,4 @@
-#include "./boilerplate.cc" // NOLINT
+#include "boilerplate.h"
 
 #define USE_AS_HEADER
 
@@ -6,7 +6,7 @@
 #include <gtest/gtest.h>
 
 // Demonstrate some basic assertions.
-TEST(HelloTest, BasicAssertions) {
+TEST(BoilerPlateTest, BasicAssertions) {
   // Expect two strings not to be equal.
   EXPECT_STRNE("hello", "world");
   // Expect equality.
@@ -14,42 +14,33 @@ TEST(HelloTest, BasicAssertions) {
 }
 
 
-// TODO(xuyang): a proper C++ test framework
-
-void test_safehash() {
+TEST(BoilerPlateTest, SafeHash) {
     auto h1 = mk_hashmap<string>();
     h1[1] = "good";
-    assert(h1[1] == "good");
+    EXPECT_EQ(h1[1], "good");
     safe_hashmap<string> h2 = mk_hashmap<string>();
     h2[2] = "good";
-    assert(h2[2] == "good");
+    EXPECT_EQ(h2[2], "good");
 
     safe_hashset s1 = mk_hashset();
     s1.insert(3);
-    assert(s1.count(3));
-    assert(!s1.count(4));
+    EXPECT_TRUE(s1.count(3));
+    EXPECT_FALSE(s1.count(4));
 
     auto s2 = mk_hashset();
     s2.insert(4);
-    assert(s2.count(4));
-    assert(!s2.count(3));
+    EXPECT_TRUE(s2.count(4));
+    EXPECT_FALSE(s2.count(3));
 }
 
-void test_argv() {
+TEST(BoilerPlateTest, WritelnArgv) {
     int a = 0;
     writeln("a =", a);
 }
 
-void test_template_argument_deduction() {
-    pair pii = {1, 2};
-    assert(pii.first == 1);
-    assert(pii.second == 2);
-}
 
-int main(int argc, char **argv) {
-    test_safehash();
-    test_argv();
-    test_template_argument_deduction();
-    cout << "test passed!" << endl;
-    return 0;
+TEST(BoilerPlateTest, TemplateArgumentDeduction) {
+    pair pii = {1, 2};
+    EXPECT_EQ(pii.first, 1);
+    EXPECT_EQ(pii.second, 2);
 }
